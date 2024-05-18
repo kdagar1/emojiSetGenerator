@@ -12,6 +12,10 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(bodyParser.urlencoded({extended:false}));
 
+if(process.argv.length != 3) {
+    process.stdout.write(`Usage ${process.argv[1]} targetLanguage`);
+    process.exit(1);
+}
 const portNumber = process.argv[2];
 
 app.set("views", path.resolve(__dirname, "templates"));
@@ -22,7 +26,6 @@ app.get("/", (request, response) => {
     });
 
 app.listen(portNumber);
-console.log(`Web server started and running at http://localhost:${portNumber}`);
 
 app.get("/create", (request, response) => {
     const link = `http://localhost:${portNumber}/results`;
@@ -47,7 +50,7 @@ app.post("/results", async (request, response) => {
                 emojiString += emoji;
             });
         } else {
-            emojiString += "No emoji found for keyword"
+            emojiString += "No emoji found for keyword";
         }
 
         let user = {
