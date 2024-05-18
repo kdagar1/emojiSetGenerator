@@ -39,7 +39,7 @@ app.post("/results", async (request, response) => {
 
         let emojiString = "";
         const emojis = await findEmojis(user1);
-        if(emojis.length = 3) {
+        if(emojis.length == 3) {
             emojis.forEach(emoji => {
                 emojiString += emoji;
             });
