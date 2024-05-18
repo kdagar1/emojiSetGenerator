@@ -12,13 +12,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(bodyParser.urlencoded({extended:false}));
 
-if(process.argv.length != 3) {
-    process.stdout.write(`Usage ${process.argv[1]} targetLanguage`);
-    process.exit(1);
-}
-
-const portNumber = process.argv[2];
-
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
 
@@ -26,11 +19,10 @@ app.get("/", (request, response) => {
     response.render("welcome");
     });
 
-app.listen(portNumber);
-console.log(`Web server started and running at http://localhost:${portNumber}`);
+const startURL = process.env.URL;
 
 app.get("/create", (request, response) => {
-    const link = `http://localhost:${portNumber}/results`;
+    const link = `${startURL}/results`;
     response.render("information", {formAction: link});
     });
 
@@ -75,7 +67,7 @@ app.post("/results", async (request, response) => {
 });
 
 app.get("/reviewCreations", (request, response) => {
-    const link = `http://localhost:${portNumber}/prevResults`;
+    const link = `${startURL}/prevResults`;
     response.render("previousResults", {formAction:link}); 
     });  
 
