@@ -26,6 +26,7 @@ app.get("/", (request, response) => {
     });
 
 app.listen(portNumber);
+console.log(`Web server started and running at http://localhost:${portNumber}`);
 
 app.get("/create", (request, response) => {
     const link = `/results`;
