@@ -12,6 +12,8 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(bodyParser.urlencoded({extended:false}));
 
+const portNumber = process.argv[2];
+
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
 
@@ -19,10 +21,11 @@ app.get("/", (request, response) => {
     response.render("welcome");
     });
 
-const startURL = process.env.URL;
+app.listen(portNumber);
+console.log(`Web server started and running at http://localhost:${portNumber}`);
 
 app.get("/create", (request, response) => {
-    const link = `${startURL}/results`;
+    const link = `http://localhost:${portNumber}/results`;
     response.render("information", {formAction: link});
     });
 
@@ -67,7 +70,7 @@ app.post("/results", async (request, response) => {
 });
 
 app.get("/reviewCreations", (request, response) => {
-    const link = `${startURL}/prevResults`;
+    const link = `http://localhost:${portNumber}/prevResults`;
     response.render("previousResults", {formAction:link}); 
     });  
 
