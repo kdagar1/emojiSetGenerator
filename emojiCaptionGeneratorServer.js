@@ -41,7 +41,7 @@ app.post("/results", async (request, response) => {
             userId: request.body.userId, 
             keyword1: request.body.keyword1, 
             keyword2: request.body.keyword2, 
-            keyword3: request.body.keyword1
+            keyword3: request.body.keyword3
         };
 
         let emojiString = "";
