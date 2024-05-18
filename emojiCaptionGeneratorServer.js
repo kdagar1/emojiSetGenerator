@@ -116,11 +116,16 @@ async function findEmojis(user) {
         let result = [];
         for (const emoji of allEmojis){
             if(result.length < 3) {
-                if(emoji.name.includes(user.keyword1.toLowerCase()) 
-                || emoji.name.includes(user.keyword2.toLowerCase())
-                || emoji.name.includes(user.keyword3.toLowerCase())) {
+                if(emoji.name.includes(user.keyword1.toLowerCase())) {
                     result.push(emoji.htmlCode);
+                } else if (emoji.name.includes(user.keyword2.toLowerCase()) && result.length > 0) {
+                    result.push(emoji.htmlCode);
+                } else {
+                    if(emoji.name.includes(user.keyword3.toLowerCase()) && result.length > 1) {
+                        result.push(emoji.htmlCode);
+                    }
                 }
+
             }
             else {
                 break;
