@@ -28,7 +28,7 @@ app.get("/", (request, response) => {
 app.listen(portNumber);
 
 app.get("/create", (request, response) => {
-    const link = `http://localhost:${portNumber}/results`;
+    const link = `/results`;
     response.render("information", {formAction: link});
     });
 
@@ -73,7 +73,7 @@ app.post("/results", async (request, response) => {
 });
 
 app.get("/reviewCreations", (request, response) => {
-    const link = `http://localhost:${portNumber}/prevResults`;
+    const link = `/prevResults`;
     response.render("previousResults", {formAction:link}); 
     });  
 
