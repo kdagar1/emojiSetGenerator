@@ -16,6 +16,7 @@ if(process.argv.length != 3) {
     process.stdout.write(`Usage ${process.argv[1]} targetLanguage`);
     process.exit(1);
 }
+
 const portNumber = process.argv[2];
 
 app.set("views", path.resolve(__dirname, "templates"));
@@ -26,11 +27,10 @@ app.get("/", (request, response) => {
     });
 
 app.listen(portNumber);
-console.log(`Web server started and running at http://localhost:${portNumber}`);
 
 app.get("/create", (request, response) => {
     const link = `/results`;
-    response.render("information", {formAction: link});
+    response.render("information");
     });
 
 app.post("/results", async (request, response) => {
@@ -74,8 +74,7 @@ app.post("/results", async (request, response) => {
 });
 
 app.get("/reviewCreations", (request, response) => {
-    const link = `/prevResults`;
-    response.render("previousResults", {formAction:link}); 
+    response.render("previousResults"); 
     });  
 
 app.post("/prevResults", async (request, response) => {
