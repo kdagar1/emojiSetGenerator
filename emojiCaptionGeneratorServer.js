@@ -50,20 +50,19 @@ app.post("/results", async (request, response) => {
             emojis.forEach(emoji => {
                 emojiString += emoji;
             });
+            let user = {
+                userId: request.body.userId,
+                keywords: `${user1.keyword1}, ${user1.keyword2}, ${user1.keyword3}`,
+                emojiSet: emojiString
+            }
+    
+            await insertUser(client, databaseAndCollection, user);
         } else {
             emojiString += "No emoji found for keyword";
         }
 
-        let user = {
-            userId: request.body.userId,
-            keywords: `${user1.keyword1}, ${user1.keyword2}, ${user1.keyword3}`,
-            emojiSet: emojiString
-        }
-
-        await insertUser(client, databaseAndCollection, user);
-
         const variables = {
-            emojiSet: user.emojiSet,
+            emojiSet: emojiString,
         }
         response.render("newResults", variables);
     } catch (e) {
