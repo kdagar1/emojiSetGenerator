@@ -2,22 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Past Emoji Sets</title>
-    <link rel="stylesheet" href="/style.css">
+	<meta charset="utf-8" />
+	<title>Past Emoji Sets</title>
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>View Past Emoji Sets</h1>
-        <form action="/prevResults" method="post"> 
-            <label><b>User ID:</b> <input type="text" name="userId" required/></label>
-            <input type="reset" value="Reset"/>
-            <input type="submit" value="Submit"/>
-        </form>
-        <hr>
-        <a href="/">HOME</a>
-    </div>
+	<h1>View Past Emoji Sets</h1>
+	<form action="/prevResults" method="post"> 
+		<div style="border: 1px solid black; padding-left: 1rem; padding-top:0.5rem; padding-bottom: 1rem;">
+			<label><b> User ID: </b> <input type="text" name="userId"/></label><br><br>
+		</div>
+		<br><br>
+		<input type="reset" value="Reset"/>
+		<input type="submit" value="Submit"/>
+	</form>
+	<hr>
+	<a href="/">HOME</a>
+
 </body>
 
 </html>
