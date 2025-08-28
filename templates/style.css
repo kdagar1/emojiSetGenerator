@@ -1,1 +1,40 @@
+body {
+	background: linear-gradient(135deg, #f8efff, #ffeef8);
+	color: #333;
+	font-family: 'Fredoka', sans-serif;
+	padding: 2rem;
+	}
+
+h1 {
+	font-size: 2.2rem;
+	color: #6c4ba0;
+}
+
+h2 {
+	font-weight: 400;
+	color: #9c7fc9;
+}
+
+a {
+	background: #e6d6ff;
+	padding: 6px 12px;
+	border-radius: 12px;
+	text-decoration: none;
+	color: #4a3d68;
+	font-weight: 600;
+	transition: background 0.2s;
+}
+
+a:hover {
+	background: #d6c2f5;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	margin: 1rem 0;
+}
 
